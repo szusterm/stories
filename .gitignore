@@ -1,2 +1,5 @@
 # ide
 .idea/
+
+# dependencies
+/node_modules

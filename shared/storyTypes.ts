@@ -1,38 +1,40 @@
-export interface Story {
+export interface IStory {
     title: string;
     authorId: string;
 
-    startTarget: Target;
+    startTarget: ITarget;
 
     blocks: {
-        texts: TextBlock[];
-        choices: ChoiceBlock[];
-    }
+        texts: ITextBlock[];
+        choices: IChoiceBlock[];
+    };
 }
 
 
-export interface TextBlock {
+export interface ITextBlock {
     _id: string;
     title: string;
     content: string;
 
-    target: Target
+    target: ITarget;
 }
 
-export interface ChoiceBlock {
+export interface IChoiceBlock {
     _id: string;
     title: string;
 
-    choices: Choice[];
+    choices: IChoice[];
 }
 
-export interface Choice {
+export interface IChoice {
     name: string;
-    target: Target;
+    target: ITarget;
 }
 
 
-export interface Target {
-    type: string
-    targetId: string
+export interface ITarget {
+    type: BlockType;
+    targetId: string;
 }
+
+export type BlockType = 'text' | 'choice';
