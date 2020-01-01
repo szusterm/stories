@@ -9,10 +9,6 @@ import {IStory} from '../../../../shared/storyTypes';
 export class StoryComponent implements OnInit {
   @Input() story: IStory;
 
-  constructor() {
-  }
-
   ngOnInit() {
   }
-
 }

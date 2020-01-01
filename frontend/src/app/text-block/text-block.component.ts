@@ -9,10 +9,6 @@ import {ITextBlock} from '../../../../shared/storyTypes';
 export class TextBlockComponent implements OnInit {
   @Input() block: ITextBlock;
 
-  constructor() {
-  }
-
   ngOnInit() {
   }
-
 }
