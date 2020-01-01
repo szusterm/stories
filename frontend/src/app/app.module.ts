@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoryComponent } from './story/story.component';
 import { TextBlockComponent } from './text-block/text-block.component';
+import { ChoiceBlockComponent } from './choice-block/choice-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoryComponent,
-    TextBlockComponent
+    TextBlockComponent,
+    ChoiceBlockComponent
   ],
   imports: [
     BrowserModule,

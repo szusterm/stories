@@ -1,4 +1,6 @@
-export interface IStory {
+import {IMongoBase} from './mongo-types';
+
+export interface IStory extends IMongoBase {
     title: string;
     authorId: string;
 
@@ -11,22 +13,20 @@ export interface IStory {
 }
 
 
-export interface ITextBlock {
-    _id: string;
+export interface ITextBlock extends IMongoBase {
     title: string;
     content: string;
 
     target: ITarget;
 }
 
-export interface IChoiceBlock {
-    _id: string;
+export interface IChoiceBlock extends IMongoBase {
     title: string;
 
     choices: IChoice[];
 }
 
-export interface IChoice {
+export interface IChoice extends IMongoBase {
     name: string;
     target: ITarget;
 }

@@ -1,6 +1,7 @@
-import {IStory} from '../../../shared/storyTypes';
+import {IStory} from '../../../shared/story-types';
 
 const story: IStory = {
+  _id: '365753',
   authorId: '123',
   title: 'My first story',
 
@@ -28,6 +29,7 @@ const story: IStory = {
         title: 'My choice',
         choices: [
           {
+            _id: '236456',
             name: 'Go left',
             target: {
               type: 'text',
@@ -35,6 +37,7 @@ const story: IStory = {
             }
           },
           {
+            _id: '945674',
             name: 'Go right',
             target: {
               type: 'text',

@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {IStory} from '../../../../shared/storyTypes';
+import {IStory} from '../../../../shared/story-types';
 
 @Component({
   selector: 'app-story',

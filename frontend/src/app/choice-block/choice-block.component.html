@@ -1,0 +1,13 @@
+<div *ngIf="block">
+
+  <h2>{{block.title}}</h2>
+
+  <div>
+    <button
+      *ngFor="let choice of block.choices"
+    >
+      {{choice.name}}
+    </button>
+  </div>
+
+</div>

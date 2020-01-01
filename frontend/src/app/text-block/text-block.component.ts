@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ITextBlock} from '../../../../shared/storyTypes';
+import {ITextBlock} from '../../../../shared/story-types';
 
 @Component({
   selector: 'app-text-block',

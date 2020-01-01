@@ -7,4 +7,11 @@
     ></app-text-block>
   </div>
 
+  <div>
+    <app-choice-block
+      *ngFor="let choiceBlock of story.blocks.choices"
+      [block]="choiceBlock"
+    ></app-choice-block>
+  </div>
+
 </div>
