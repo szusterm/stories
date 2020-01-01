@@ -1,0 +1,10 @@
+<div *ngIf="story">
+
+  <div>
+    <app-text-block
+      *ngFor="let textBlock of story.blocks.texts"
+      [block]="textBlock"
+    ></app-text-block>
+  </div>
+
+</div>
