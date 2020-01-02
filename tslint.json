@@ -3,6 +3,10 @@
     "extends": "tslint:recommended",
     "rules": {
         "no-consecutive-blank-lines": [true, 2],
-        "quotemark": [true, "single", "avoid-escape", "avoid-template"]
+        "quotemark": [true, "single", "avoid-escape", "avoid-template"],
+        "no-empty-interface": false,
+        "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
+        "one-line": false,
+        "no-magic-numbers": [true, -1, 0, 1, 2]
     }
 }

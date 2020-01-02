@@ -4,7 +4,7 @@ export interface IStory extends IMongoBase {
     title: string;
     authorId: string;
 
-    startTarget: ITarget;
+    startTarget?: ITarget;
 
     blocks: {
         texts: ITextBlock[];
@@ -13,14 +13,16 @@ export interface IStory extends IMongoBase {
 }
 
 
-export interface ITextBlock extends IMongoBase {
+export interface IBlock extends IMongoBase {}
+
+export interface ITextBlock extends IBlock {
     title: string;
     content: string;
 
-    target: ITarget;
+    target?: ITarget;
 }
 
-export interface IChoiceBlock extends IMongoBase {
+export interface IChoiceBlock extends IBlock {
     title: string;
 
     choices: IChoice[];
@@ -28,7 +30,7 @@ export interface IChoiceBlock extends IMongoBase {
 
 export interface IChoice extends IMongoBase {
     name: string;
-    target: ITarget;
+    target?: ITarget;
 }
 
 
@@ -37,4 +39,7 @@ export interface ITarget {
     targetId: string;
 }
 
-export type BlockType = 'text' | 'choice';
+export enum BlockType {
+    TEXT = 'text',
+    CHOICE = 'choice'
+}

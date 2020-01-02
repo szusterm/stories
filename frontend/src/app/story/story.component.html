@@ -2,14 +2,14 @@
 
   <div>
     <app-text-block
-      *ngFor="let textBlock of story.blocks.texts"
+      *ngFor="let textBlock of story.blocks.text"
       [block]="textBlock"
     ></app-text-block>
   </div>
 
   <div>
     <app-choice-block
-      *ngFor="let choiceBlock of story.blocks.choices"
+      *ngFor="let choiceBlock of story.blocks.choice"
       [block]="choiceBlock"
     ></app-choice-block>
   </div>
