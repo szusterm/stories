@@ -7,7 +7,7 @@ const story: IStory = {
 
   startTarget: {
     type: BlockType.TEXT,
-    targetId: '234'
+    targetId: '2324'
   },
 
   blocks: {

@@ -1,11 +1,11 @@
 import {Injectable} from '@angular/core';
-import {BlockType, IBlock, IChoiceBlock, IStory, ITextBlock} from '../../../shared/story-types';
+import {BlockType, IBlock, IChoiceBlock, IStory, ITarget, ITextBlock} from '../../../shared/story-types';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StoryService {
-  private story;
+  private story: IStory;
   private course: IBlock[] = [];
 
   load(story: IStory) {
@@ -15,12 +15,11 @@ export class StoryService {
 
   start() {
     this.course = [];
+    const {startTarget} = this.story;
 
-    if (this.story.startTarget) {
-      const {type, targetId} = this.story.startTarget;
-      const startBlock = this._findBlock(type, targetId);
-
-      this.course.push(startBlock);
+    if (startTarget) {
+      const startBlock = this._findBlock(startTarget);
+      this._pushBlock(startBlock);
     }
   }
 
@@ -38,12 +37,22 @@ export class StoryService {
     };
   }
 
+  getCourse() {
+    return this.course;
+  }
+
   isTextBlock(block: IBlock) {
-    return !this.isChoiceBlock(block);
+    return block && !this.isChoiceBlock(block);
   }
 
   isChoiceBlock(block: IBlock) {
-    return (block as IChoiceBlock).choices !== undefined;
+    return block && (block as IChoiceBlock).choices !== undefined;
+  }
+
+  private _pushBlock(block: IBlock) {
+    if (block) {
+      this.course.push(block);
+    }
   }
 
   private _revert(index: number) {
@@ -68,17 +77,16 @@ export class StoryService {
         const {target} = choiceBlock.choices[choiceId];
 
         if (target) {
-          this.course.push(this._findBlock(target.type, target.targetId));
+          this._pushBlock(this._findBlock(target));
           return true;
         }
       }
     }
     else if (this.isTextBlock(block)) {
-      const current = this._last() as ITextBlock;
-      const {target} = current;
+      const {target} = this._last() as ITextBlock;
 
       if (target) {
-        this.course.push(this._findBlock(target.type, target.targetId));
+        this._pushBlock(this._findBlock(target));
         return true;
       }
     }
@@ -102,7 +110,7 @@ export class StoryService {
     return (index >= 0 && index < block.choices.length);
   }
 
-  private _findBlock(type: BlockType, targetId: string): IBlock {
+  private _findBlock({type, targetId}: ITarget): IBlock {
     let blocksList: IBlock[] = [];
 
     switch (type) {
