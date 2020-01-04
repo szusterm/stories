@@ -40,6 +40,6 @@ export interface ITarget {
 }
 
 export enum BlockType {
-    TEXT = 'text',
-    CHOICE = 'choice'
+    TEXT = 'TEXT',
+    CHOICE = 'CHOICE'
 }

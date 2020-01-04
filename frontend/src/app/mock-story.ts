@@ -1,4 +1,4 @@
-import {IStory} from '../../../shared/story-types';
+import {BlockType, IStory} from '../../../shared/story-types';
 
 const story: IStory = {
   _id: '365753',
@@ -6,7 +6,7 @@ const story: IStory = {
   title: 'My first story',
 
   startTarget: {
-    type: 'text',
+    type: BlockType.TEXT,
     targetId: '234'
   },
 
@@ -17,7 +17,7 @@ const story: IStory = {
         title: 'Block',
         content: 'oewgneornge erogn',
         target: {
-          type: 'text',
+          type: BlockType.TEXT,
           targetId: '234234'
         }
       }
@@ -32,7 +32,7 @@ const story: IStory = {
             _id: '236456',
             name: 'Go left',
             target: {
-              type: 'text',
+              type: BlockType.TEXT,
               targetId: '11'
             }
           },
@@ -40,7 +40,7 @@ const story: IStory = {
             _id: '945674',
             name: 'Go right',
             target: {
-              type: 'text',
+              type: BlockType.TEXT,
               targetId: '11'
             }
           }

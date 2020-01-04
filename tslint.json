@@ -7,6 +7,14 @@
         "no-empty-interface": false,
         "trailing-comma": [true, {"multiline": "never", "singleline": "never"}],
         "one-line": false,
-        "no-magic-numbers": [true, -1, 0, 1, 2]
+        "no-magic-numbers": [true, -1, 0, 1, 2],
+        "variable-name": {
+            "options": [
+                "ban-keywords",
+                "check-format",
+                "allow-leading-underscore",
+                "allow-pascal-case"
+            ]
+        }
     }
 }
