@@ -16,15 +16,11 @@ export interface IStory extends IMongoBase {
 export interface IBlock extends IMongoBase {}
 
 export interface ITextBlock extends IBlock {
-    title: string;
     content: string;
-
     target?: ITarget;
 }
 
 export interface IChoiceBlock extends IBlock {
-    title: string;
-
     choices: IChoice[];
 }
 
