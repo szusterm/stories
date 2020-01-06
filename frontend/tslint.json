@@ -31,17 +31,6 @@
       140
     ],
     "member-access": false,
-    "member-ordering": [
-      true,
-      {
-        "order": [
-          "static-field",
-          "instance-field",
-          "static-method",
-          "instance-method"
-        ]
-      }
-    ],
     "no-empty": false,
     "no-inferrable-types": [
       true,

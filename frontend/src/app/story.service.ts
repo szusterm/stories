@@ -5,21 +5,22 @@ import {BlockType, IBlock, IChoiceBlock, IStory, ITarget, ITextBlock} from '../.
   providedIn: 'root'
 })
 export class StoryService {
-  private story: IStory;
-  private course: IBlock[] = [];
+  private _story: IStory;
+  private _course: IBlock[] = [];
 
   load(story: IStory) {
-    this.story = story;
+    this._story = story;
     this.start();
   }
 
   start() {
-    this.course = [];
-    const {startTarget} = this.story;
+    this._course = [];
+    const {startTarget} = this._story;
 
     if (startTarget) {
       const startBlock = this._findBlock(startTarget);
       this._pushBlock(startBlock);
+      this._next(startBlock);
     }
   }
 
@@ -28,7 +29,7 @@ export class StoryService {
       return;
     }
 
-    const block = this.course[index];
+    const block = this._course[index];
 
     this._revert(index);
 
@@ -38,11 +39,11 @@ export class StoryService {
   }
 
   getCourse() {
-    return this.course;
+    return this._course;
   }
 
   isTextBlock(block: IBlock) {
-    return block && !this.isChoiceBlock(block);
+    return block && (block as ITextBlock).content !== undefined;
   }
 
   isChoiceBlock(block: IBlock) {
@@ -51,7 +52,7 @@ export class StoryService {
 
   private _pushBlock(block: IBlock) {
     if (block) {
-      this.course.push(block);
+      this._course.push(block);
     }
   }
 
@@ -60,33 +61,38 @@ export class StoryService {
       return;
     }
 
-    const block = this.course[index];
+    const block = this._course[index];
 
     if (block === this._last()) {
       return;
     }
 
-    this.course = this.course.slice(0, index + 1);
+    this._course = this._course.slice(0, index + 1);
   }
 
   private _next(block: IBlock, choiceId?: number) {
-    if (choiceId && this.isChoiceBlock(block)) {
-      const choiceBlock = block as IChoiceBlock;
-
-      if (this._isCorrectChoice(choiceBlock, choiceId)) {
-        const {target} = choiceBlock.choices[choiceId];
-
-        if (target) {
-          this._pushBlock(this._findBlock(target));
-          return true;
-        }
-      }
+    if (this.isChoiceBlock(block)) {
+      return this._nextChoiceBlock(block as IChoiceBlock, choiceId);
     }
-    else if (this.isTextBlock(block)) {
-      const {target} = this._last() as ITextBlock;
+    if (this.isTextBlock(block)) {
+      return this._nextTextBlock(block as ITextBlock);
+    }
+
+    return false;
+  }
+
+  private _nextChoiceBlock(block: IChoiceBlock, choiceId: number) {
+    const choiceBlock = block as IChoiceBlock;
+
+    if (this._isCorrectChoice(choiceBlock, choiceId)) {
+      const {target} = choiceBlock.choices[choiceId];
 
       if (target) {
-        this._pushBlock(this._findBlock(target));
+        const nextBlock = this._findBlock(target);
+
+        this._pushBlock(nextBlock);
+        this._next(nextBlock);
+
         return true;
       }
     }
@@ -94,20 +100,24 @@ export class StoryService {
     return false;
   }
 
+  private _nextTextBlock(block: ITextBlock) {
+    const {target} = block as ITextBlock;
+
+    if (target) {
+      this._pushBlock(this._findBlock(target));
+      this._next(this._last());
+      return true;
+    }
+
+    return false;
+  }
+
   private _last(): IBlock | undefined {
-    if (this.course.length <= 1) {
+    if (this._course.length === 0) {
       return;
     }
 
-    return this.course[this.course.length - 2];
-  }
-
-  private _isCorrectCourseId(index: number) {
-    return (index >= 0 && index < this.course.length);
-  }
-
-  private _isCorrectChoice(block: IChoiceBlock, index: number) {
-    return (index >= 0 && index < block.choices.length);
+    return this._course[this._course.length - 1];
   }
 
   private _findBlock({type, targetId}: ITarget): IBlock {
@@ -115,13 +125,21 @@ export class StoryService {
 
     switch (type) {
       case BlockType.TEXT:
-        blocksList = this.story.blocks.texts;
+        blocksList = this._story.blocks.texts;
         break;
       case BlockType.CHOICE:
-        blocksList = this.story.blocks.choices;
+        blocksList = this._story.blocks.choices;
         break;
     }
 
     return blocksList.find(block => block._id === targetId);
+  }
+
+  private _isCorrectCourseId(index: number) {
+    return (index >= 0 && index < this._course.length);
+  }
+
+  private _isCorrectChoice(block: IChoiceBlock, index: number) {
+    return (index >= 0 && index < block.choices.length);
   }
 }

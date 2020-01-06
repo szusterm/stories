@@ -1,5 +1,5 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {IStory} from '../../../../shared/story-types';
+import {IBlock, IStory} from '../../../../shared/story-types';
 import {StoryService} from '../story.service';
 
 @Component({
@@ -10,10 +10,10 @@ import {StoryService} from '../story.service';
 export class StoryComponent implements OnInit {
   @Input() story: IStory;
 
-  constructor(private storyService: StoryService) {}
+  constructor(private _storyService: StoryService) {}
 
   ngOnInit() {
-    this.storyService.load(this.story);
-    this.storyService.start();
+    this._storyService.load(this.story);
+    this._storyService.start();
   }
 }

@@ -1,14 +1,16 @@
 <div *ngIf="story">
 
   <div>
-    <div *ngFor="let block of storyService.getCourse()">
+    <div *ngFor="let block of _storyService.getCourse(); let id = index">
       <app-text-block
-        *ngIf="storyService.isTextBlock(block)"
+        *ngIf="_storyService.isTextBlock(block)"
         [block]="block"
+        [index]="id"
       ></app-text-block>
       <app-choice-block
-        *ngIf="storyService.isChoiceBlock(block)"
+        *ngIf="_storyService.isChoiceBlock(block)"
         [block]="block"
+        [index]="id"
       ></app-choice-block>
     </div>
   </div>

@@ -1,5 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ITextBlock} from '../../../../shared/story-types';
+import {StoryService} from '../story.service';
 
 @Component({
   selector: 'app-text-block',
@@ -8,6 +9,9 @@ import {ITextBlock} from '../../../../shared/story-types';
 })
 export class TextBlockComponent implements OnInit {
   @Input() block: ITextBlock;
+  @Input() index: number;
+
+  constructor(private _storyService: StoryService) {}
 
   ngOnInit() {
   }

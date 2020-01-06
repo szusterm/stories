@@ -1,10 +1,9 @@
 <div *ngIf="block">
 
-  <h2>{{block.title}}</h2>
-
   <div>
     <button
-      *ngFor="let choice of block.choices"
+      *ngFor="let choice of block.choices; let choiceId = index"
+      (click)="_storyService.get(index).next(choiceId)"
     >
       {{choice.name}}
     </button>
