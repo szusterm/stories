@@ -3,7 +3,7 @@ import {BlockType, IStory} from '../../../shared/story-types';
 const story: IStory = {
   _id: '365753',
   authorId: '123',
-  title: 'My first story',
+  title: 'My first story-reader',
 
   startTarget: {
     type: BlockType.TEXT,

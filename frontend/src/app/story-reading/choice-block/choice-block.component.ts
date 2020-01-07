@@ -1,5 +1,5 @@
 import {Component, Input} from '@angular/core';
-import {IChoiceBlock} from '../../../../shared/story-types';
+import {IChoiceBlock} from '../../../../../shared/story-types';
 import {StoryService} from '../story.service';
 
 @Component({

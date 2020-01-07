@@ -1,13 +1,13 @@
 import {Component, OnInit, Input} from '@angular/core';
-import {IBlock, IStory} from '../../../../shared/story-types';
+import {IStory} from '../../../../../shared/story-types';
 import {StoryService} from '../story.service';
 
 @Component({
-  selector: 'app-story',
-  templateUrl: './story.component.html',
-  styleUrls: ['./story.component.scss']
+  selector: 'app-story-reader',
+  templateUrl: './story-reader.component.html',
+  styleUrls: ['./story-reader.component.scss']
 })
-export class StoryComponent implements OnInit {
+export class StoryReaderComponent implements OnInit {
   @Input() story: IStory;
 
   constructor(private _storyService: StoryService) {}
