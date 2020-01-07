@@ -127,6 +127,15 @@ const story: IStory = {
       },
 
       {
+        _id: '013',
+        content: 'Postanawiasz wrócić... ale co to? Drzwi są zamknięte.',
+        target: {
+          type: BlockType.TEXT,
+          targetId: '012'
+        }
+      },
+
+      {
         _id: '014',
         content: 'Chwytasz pewniej nóż i powoli zbliżasz się do klęczącej kobiety. ' +
           'Ona wstała jakby wyczuła twą obecność, odwróciła się w twoją stronę i widząc nóż w twojej ręce zaczęła ' +
@@ -375,15 +384,6 @@ const story: IStory = {
             target: {
               type: BlockType.TEXT,
               targetId: '015'
-            }
-          },
-
-          {
-            _id: '7',
-            name: 'Postanawiasz wrócić... ale co to? Drzwi są zamknięte.',
-            target: {
-              type: BlockType.TEXT,
-              targetId: '012'
             }
           }
         ]
