@@ -3,7 +3,7 @@
   <div>
     <button
       *ngFor="let choice of block.choices; let choiceId = index"
-      (click)="_storyService.get(index).next(choiceId)"
+      (click)="_storyService.go(index).next(choiceId)"
     >
       {{choice.name}}
     </button>

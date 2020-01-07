@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { StoryComponent } from './story/story.component';
 import { TextBlockComponent } from './text-block/text-block.component';
 import { ChoiceBlockComponent } from './choice-block/choice-block.component';
+import { EndingBlockComponent } from './ending-block/ending-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     StoryComponent,
     TextBlockComponent,
-    ChoiceBlockComponent
+    ChoiceBlockComponent,
+    EndingBlockComponent
   ],
   imports: [
     BrowserModule,

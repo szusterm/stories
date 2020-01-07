@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import {ITextBlock} from '../../../../shared/story-types';
 import {StoryService} from '../story.service';
 
@@ -7,12 +7,9 @@ import {StoryService} from '../story.service';
   templateUrl: './text-block.component.html',
   styleUrls: ['./text-block.component.scss']
 })
-export class TextBlockComponent implements OnInit {
+export class TextBlockComponent {
   @Input() block: ITextBlock;
   @Input() index: number;
 
   constructor(private _storyService: StoryService) {}
-
-  ngOnInit() {
-  }
 }

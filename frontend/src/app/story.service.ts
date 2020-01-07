@@ -20,21 +20,20 @@ export class StoryService {
     if (startTarget) {
       const startBlock = this._findBlock(startTarget);
       this._pushBlock(startBlock);
-      this._next(startBlock);
+      this._next();
     }
   }
 
-  get(index: number) {
+  go(index: number) {
     if (!this._isCorrectCourseId(index)) {
       return;
     }
 
-    const block = this._course[index];
-
-    this._revert(index);
-
     return {
-      next: (choiceId?: number) => this._next(block, choiceId)
+      next: (choiceId?: number) => {
+        this._revert(index);
+        return this._next(choiceId);
+      }
     };
   }
 
@@ -50,10 +49,12 @@ export class StoryService {
     return block && (block as IChoiceBlock).choices !== undefined;
   }
 
+  isEndingBlock(block: IBlock) {
+    return block === undefined;
+  }
+
   private _pushBlock(block: IBlock) {
-    if (block) {
-      this._course.push(block);
-    }
+    this._course.push(block);
   }
 
   private _revert(index: number) {
@@ -70,28 +71,28 @@ export class StoryService {
     this._course = this._course.slice(0, index + 1);
   }
 
-  private _next(block: IBlock, choiceId?: number) {
+  private _next(choiceId?: number) {
+    const block = this._last();
+
     if (this.isChoiceBlock(block)) {
-      return this._nextChoiceBlock(block as IChoiceBlock, choiceId);
+      return this._nextForChoiceBlock(block as IChoiceBlock, choiceId);
     }
     if (this.isTextBlock(block)) {
-      return this._nextTextBlock(block as ITextBlock);
+      return this._nextForTextBlock(block as ITextBlock);
     }
 
     return false;
   }
 
-  private _nextChoiceBlock(block: IChoiceBlock, choiceId: number) {
+  private _nextForChoiceBlock(block: IChoiceBlock, choiceId: number) {
     const choiceBlock = block as IChoiceBlock;
 
     if (this._isCorrectChoice(choiceBlock, choiceId)) {
       const {target} = choiceBlock.choices[choiceId];
 
       if (target) {
-        const nextBlock = this._findBlock(target);
-
-        this._pushBlock(nextBlock);
-        this._next(nextBlock);
+        this._pushBlock(this._findBlock(target));
+        this._next();
 
         return true;
       }
@@ -100,15 +101,17 @@ export class StoryService {
     return false;
   }
 
-  private _nextTextBlock(block: ITextBlock) {
+  private _nextForTextBlock(block: ITextBlock) {
     const {target} = block as ITextBlock;
 
     if (target) {
       this._pushBlock(this._findBlock(target));
-      this._next(this._last());
+      this._next();
+
       return true;
     }
 
+    this._pushBlock(undefined);
     return false;
   }
 

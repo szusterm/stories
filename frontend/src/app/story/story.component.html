@@ -12,6 +12,9 @@
         [block]="block"
         [index]="id"
       ></app-choice-block>
+      <app-ending-block
+        *ngIf="_storyService.isEndingBlock(block)"
+      ></app-ending-block>
     </div>
   </div>
 
