@@ -1,6 +1,12 @@
 <button
+  class="choice-button"
+
+  fxFlex="100"
+  fxLayoutAlign="center"
+  fxLayout="row wrap"
   mat-stroked-button
-  [color]="selected ? 'primary' : 'accent'"
+
+  [color]="selected && 'primary'"
 >
   <ng-content></ng-content>
 </button>

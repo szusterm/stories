@@ -1,6 +1,15 @@
-<div>
-  <h1>Story</h1>
-  <app-story-reader [story]="story"></app-story-reader>
+<div
+  class="mat-typography app-main"
+  fxLayout="row"
+  fxLayoutAlign="center"
+>
+  <div
+    fxFlex.xs="100"
+    fxFlex.md="80"
+    fxFlex="60"
+  >
+    <app-story-reader [story]="story"></app-story-reader>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

@@ -1,0 +1,28 @@
+.story-reader {
+  margin-top: 16px;
+  margin-bottom: 48px;
+
+  &--header {
+    margin-bottom: 38px;
+
+    .header {
+      &--title {
+        margin-bottom: 0;;
+      }
+
+      &--author-box {
+        .author-box {
+          &--by {
+            opacity: 0.7;
+            margin-right: 3px;
+          }
+
+          &--author-name {
+            text-decoration-line: underline;
+            //font-weight: bold;
+          }
+        }
+      }
+    }
+  }
+}

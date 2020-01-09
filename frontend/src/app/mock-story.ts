@@ -2,7 +2,7 @@ import {BlockType, IStory} from '../../../shared/story-types';
 
 const story: IStory = {
   _id: '365753',
-  authorId: '123',
+  authorId: 'Anonymous',
   title: 'My first story-reader',
 
   startTarget: {
@@ -183,7 +183,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Wracasz do sypialni i próbujesz ponownie zasnąć.',
+            name: 'Wracasz do sypialni i próbujesz ponownie zasnąć',
             target: {
               type: BlockType.TEXT,
               targetId: '02'
@@ -192,7 +192,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Idziesz to sprawdzić.',
+            name: 'Idziesz to sprawdzić',
             target: {
               type: BlockType.TEXT,
               targetId: '03'
@@ -206,7 +206,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Odkrywasz kołdrę.',
+            name: 'Odkrywasz kołdrę',
             target: {
               type: BlockType.TEXT,
               targetId: '04'
@@ -215,7 +215,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Ignorujesz to.',
+            name: 'Ignorujesz to',
             target: {
               type: BlockType.TEXT,
               targetId: '05'
@@ -224,7 +224,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Powoli wychodzisz z łóżka i dzwonisz na policję.',
+            name: 'Powoli wychodzisz z łóżka i dzwonisz na policję',
             target: {
               type: BlockType.TEXT,
               targetId: '06'
@@ -238,7 +238,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Dzwonisz na policje.',
+            name: 'Dzwonisz na policje',
             target: {
               type: BlockType.TEXT,
               targetId: '06'
@@ -247,7 +247,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Sprawdzasz dokąd prowadzą ślady.',
+            name: 'Sprawdzasz dokąd prowadzą ślady',
             target: {
               type: BlockType.TEXT,
               targetId: '07'
@@ -261,7 +261,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Schodzisz do piwnicy.',
+            name: 'Schodzisz do piwnicy',
             target: {
               type: BlockType.TEXT,
               targetId: '08'
@@ -270,7 +270,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Dzwonisz po policje.',
+            name: 'Dzwonisz po policje',
             target: {
               type: BlockType.TEXT,
               targetId: '06'
@@ -279,7 +279,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Postanawiasz najpierw się uzbroić.',
+            name: 'Postanawiasz najpierw się uzbroić',
             target: {
               type: BlockType.TEXT,
               targetId: '09'
@@ -293,7 +293,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Schodzisz po ciemku.',
+            name: 'Schodzisz po ciemku',
             target: {
               type: BlockType.TEXT,
               targetId: '010'
@@ -302,7 +302,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Dzwonisz po policje.',
+            name: 'Dzwonisz po policje',
             target: {
               type: BlockType.TEXT,
               targetId: '06'
@@ -311,7 +311,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Używasz latarki z telefonu.',
+            name: 'Używasz latarki z telefonu',
             target: {
               type: BlockType.TEXT,
               targetId: '011'
@@ -325,7 +325,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Schodzisz po ciemku.',
+            name: 'Schodzisz po ciemku',
             target: {
               type: BlockType.TEXT,
               targetId: '010'
@@ -334,7 +334,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Używasz latarki z telefonu.',
+            name: 'Używasz latarki z telefonu',
             target: {
               type: BlockType.TEXT,
               targetId: '011'
@@ -348,7 +348,7 @@ const story: IStory = {
         choices: [
           {
             _id: '7',
-            name: 'Wchodzisz.',
+            name: 'Wchodzisz',
             target: {
               type: BlockType.TEXT,
               targetId: '012'
@@ -357,7 +357,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Wracasz.',
+            name: 'Wracasz',
             target: {
               type: BlockType.TEXT,
               targetId: '013'
@@ -380,7 +380,7 @@ const story: IStory = {
 
           {
             _id: '7',
-            name: 'Podchodzisz cicho.',
+            name: 'Podchodzisz cicho',
             target: {
               type: BlockType.TEXT,
               targetId: '015'

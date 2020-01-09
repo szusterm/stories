@@ -1,4 +1,24 @@
-<div *ngIf="story">
+<div
+  *ngIf="story"
+  class="story-reader"
+>
+
+  <div class="story-reader--header">
+    <h1
+      *ngIf="story.title"
+      class="header--title"
+    >
+      {{story.title}}
+    </h1>
+
+    <div
+      *ngIf="story.authorId"
+      class="header--author-box"
+    >
+      <span class="author-box--by">By</span>
+      <span class="author-box--author-name">{{story.authorId}}</span>
+    </div>
+  </div>
 
   <div>
     <div *ngFor="let block of _storyService.getCourse(); let id = index">

@@ -1,5 +1,6 @@
 import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
+import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {MatButtonModule} from '@angular/material/button';
 
@@ -23,6 +24,7 @@ import { ChoiceButtonComponent } from './choice-button/choice-button.component';
   ],
   imports: [
     CommonModule,
+    FlexLayoutModule,
     MatButtonModule
   ]
 })
