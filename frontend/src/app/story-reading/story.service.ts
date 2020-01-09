@@ -81,7 +81,7 @@ export class StoryService {
       return this._nextForTextBlock(block as ITextBlock);
     }
 
-    return false;
+    return true;
   }
 
   private _nextForChoiceBlock(block: IChoiceBlock, choiceId: number) {

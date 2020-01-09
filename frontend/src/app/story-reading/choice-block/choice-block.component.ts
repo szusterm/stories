@@ -11,5 +11,15 @@ export class ChoiceBlockComponent {
   @Input() block: IChoiceBlock;
   @Input() index: number;
 
+  private _selectedId: number;
+
   constructor(private _storyService: StoryService) { }
+
+  private _makeChoice(choiceId: number) {
+    const chosen = this._storyService.go(this.index).next(choiceId);
+
+    if (chosen) {
+      this._selectedId = choiceId;
+    }
+  }
 }

@@ -1,12 +1,13 @@
 <div *ngIf="block">
 
   <div>
-    <button
+    <app-choice-button
       *ngFor="let choice of block.choices; let choiceId = index"
-      (click)="_storyService.go(index).next(choiceId)"
+      [selected]="_selectedId === choiceId"
+      (click)="_makeChoice(choiceId)"
     >
       {{choice.name}}
-    </button>
+    </app-choice-button>
   </div>
 
 </div>

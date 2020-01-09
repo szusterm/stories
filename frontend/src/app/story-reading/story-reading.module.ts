@@ -7,6 +7,7 @@ import {StoryReaderComponent} from './story-reader/story-reader.component';
 import {ChoiceBlockComponent} from './choice-block/choice-block.component';
 import {EndingBlockComponent} from './ending-block/ending-block.component';
 import {TextBlockComponent} from './text-block/text-block.component';
+import { ChoiceButtonComponent } from './choice-button/choice-button.component';
 
 
 @NgModule({
@@ -14,7 +15,8 @@ import {TextBlockComponent} from './text-block/text-block.component';
     StoryReaderComponent,
     TextBlockComponent,
     ChoiceBlockComponent,
-    EndingBlockComponent
+    EndingBlockComponent,
+    ChoiceButtonComponent
   ],
   exports: [
     StoryReaderComponent
