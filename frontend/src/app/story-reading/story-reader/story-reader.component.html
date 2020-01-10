@@ -21,7 +21,13 @@
   </div>
 
   <div>
-    <div *ngFor="let block of _storyService.getCourse(); let id = index">
+    <div
+      *ngFor="
+        let block of _storyService.getCourse();
+        let id = index;
+        let isLast = last
+      "
+    >
       <app-text-block
         *ngIf="_storyService.isTextBlock(block)"
         [block]="block"
@@ -31,6 +37,7 @@
         *ngIf="_storyService.isChoiceBlock(block)"
         [block]="block"
         [index]="id"
+        [isLast]="isLast"
       ></app-choice-block>
       <app-ending-block
         *ngIf="_storyService.isEndingBlock(block)"

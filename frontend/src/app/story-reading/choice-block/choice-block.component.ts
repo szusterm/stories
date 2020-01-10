@@ -10,6 +10,7 @@ import {StoryService} from '../story.service';
 export class ChoiceBlockComponent {
   @Input() block: IChoiceBlock;
   @Input() index: number;
+  @Input() isLast: boolean;
 
   private _selectedId: number;
 
