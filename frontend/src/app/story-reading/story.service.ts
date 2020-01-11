@@ -1,9 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BlockType, IBlock, IChoiceBlock, IStory, ITarget, ITextBlock} from '../../../../shared/story-types';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class StoryService {
   private _story: IStory;
   private _course: IBlock[] = [];

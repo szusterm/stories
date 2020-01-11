@@ -18,7 +18,7 @@
 
       *ngFor="let choice of block.choices; let choiceId = index"
       [selected]="_selectedId === choiceId"
-      (click)="_makeChoice(choiceId)"
+      (click)="_makeChoiceWithConfirmation(choiceId)"
     >
       {{choice.name}}
     </app-choice-button>

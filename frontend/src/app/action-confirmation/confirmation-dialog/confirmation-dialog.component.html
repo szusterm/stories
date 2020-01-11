@@ -1,0 +1,22 @@
+<div mat-dialog-content>
+  <p>{{_getDialogData().contentText}}</p>
+</div>
+<div
+  mat-dialog-actions
+  fxLayoutAlign="end"
+>
+  <button
+    mat-button
+    (click)="_closeDialog()"
+  >
+    {{_getDialogData().cancelButtonText}}
+  </button>
+  <button
+    mat-button
+    color="primary"
+    [mat-dialog-close]="true"
+    cdkFocusInitial
+  >
+    {{_getDialogData().confirmationButtonText}}
+  </button>
+</div>
