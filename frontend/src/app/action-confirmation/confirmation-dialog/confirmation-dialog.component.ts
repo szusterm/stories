@@ -1,4 +1,4 @@
-import {Component, Inject} from '@angular/core';
+import {Component, Inject, OnInit} from '@angular/core';
 import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
 
 export interface IConfirmationDialogData {
@@ -12,24 +12,30 @@ export interface IConfirmationDialogData {
   templateUrl: './confirmation-dialog.component.html',
   styleUrls: ['./confirmation-dialog.component.scss']
 })
-export class ConfirmationDialogComponent {
+export class ConfirmationDialogComponent implements OnInit {
   public static DEFAULT_CONTENT_TEXT = 'Do you want confirm?';
   public static DEFAULT_CONFIRMATION_TEXT = 'Confirm';
   public static DEFAULT_CANCEL_TEXT = 'Cancel';
+
+  private _preparedDialogData: IConfirmationDialogData;
 
   constructor(
     private _dialogRef: MatDialogRef<ConfirmationDialogComponent>,
     @Inject(MAT_DIALOG_DATA) private _dialogData: IConfirmationDialogData
   ) {}
 
+  ngOnInit() {
+    this._prepareDialogData();
+  }
+
   private _closeDialog() {
     this._dialogRef.close();
   }
 
-  private _getDialogData(): IConfirmationDialogData {
+  private _prepareDialogData() {
     const {DEFAULT_CONTENT_TEXT, DEFAULT_CONFIRMATION_TEXT, DEFAULT_CANCEL_TEXT} = ConfirmationDialogComponent;
 
-    const dialogData: IConfirmationDialogData = {
+    this._preparedDialogData = {
       contentText: DEFAULT_CONTENT_TEXT,
       confirmationButtonText: DEFAULT_CONFIRMATION_TEXT,
       cancelButtonText: DEFAULT_CANCEL_TEXT
@@ -39,18 +45,16 @@ export class ConfirmationDialogComponent {
       const {contentText, confirmationButtonText, cancelButtonText} = this._dialogData;
 
       if (contentText) {
-        dialogData.contentText = contentText;
+        this._preparedDialogData.contentText = contentText;
       }
 
       if (confirmationButtonText) {
-        dialogData.confirmationButtonText = confirmationButtonText;
+        this._preparedDialogData.confirmationButtonText = confirmationButtonText;
       }
 
       if (cancelButtonText) {
-        dialogData.cancelButtonText = cancelButtonText;
+        this._preparedDialogData.cancelButtonText = cancelButtonText;
       }
     }
-
-    return dialogData;
   }
 }
