@@ -21,13 +21,7 @@
       }
     ],
     "one-line": false,
-    "no-magic-numbers": [
-      true,
-      -1,
-      0,
-      1,
-      2
-    ],
+    "no-magic-numbers": [true, -1, 0, 1, 2],
     "variable-name": {
       "options": [
         "ban-keywords",
@@ -52,6 +46,26 @@
           "static-method"
         ]
       }
+    ],
+    "space-within-parens": [true, 0],
+    "unnecessary-else": true,
+    "eofline": true,
+    "newline-before-return": true,
+    "no-irregular-whitespace": true,
+    "semicolon": [true, "always", "ignore-bound-class-methods"],
+    "whitespace": [
+      false,
+      "check-branch",
+      "check-decl",
+      "check-operator",
+      "check-module",
+      "check-separator",
+      "check-rest-spread",
+      "check-type",
+      "check-typecast",
+      "check-type-operator",
+      "check-preblock",
+      "check-postbrace"
     ]
   }
 }

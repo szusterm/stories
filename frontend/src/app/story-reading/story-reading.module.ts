@@ -3,6 +3,7 @@ import {CommonModule} from '@angular/common';
 import {FlexLayoutModule} from '@angular/flex-layout';
 
 import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from '@angular/material/icon';
 
 import {ActionConfirmationModule} from '../action-confirmation/action-confirmation.module';
 import {ChoiceButtonComponent} from './choice-button/choice-button.component';
@@ -28,7 +29,8 @@ import {StoryService} from './story.service';
     CommonModule,
     FlexLayoutModule,
     MatButtonModule,
-    ActionConfirmationModule
+    ActionConfirmationModule,
+    MatIconModule
   ],
   providers: [StoryService]
 })
